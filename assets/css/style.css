@@ -16,7 +16,7 @@ header{
     height: 69px;
     background: #EC362D;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    z-index: 1;
+    z-index: 2;
 }
 
 header h1{
@@ -41,14 +41,99 @@ header h1{
 {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
     flex-wrap: wrap;
-    width: 1051px;
+    flex-direction: column;
+    width: 85%;
     height: 181px;
     margin-top: 100px;
     background: #FAFAFA;
     border: 1px dashed #D5D5D5;
     border-radius: 5px;
+    margin-bottom: 50px;
+}
+
+.seusQuizV div{
+    align-items: center;
+    text-align: center;
+}
+
+.seusQuizV div p
+{
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 23px;
+    color: #B9B9B9;
+}
+
+.criar{
+    box-sizing: border-box;
+    border: 1px dashed #EC362D;
+    border-radius: 50px;
+    width: 151px;
+    height: 40px;
+
+    font-weight: 400;
+    font-size: 21px;
+    line-height: 25px;
+    color: #EC362D;
+    background: #FAFAFA;
+}
+
+.quiz{
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-around;
+    flex-direction: column;
+    width: 85%;
+}
+
+.todosQ{
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    
+}
+
+.tq{
+    
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 23px;
+    color: #000000;
+    margin-left: 10px;
+
+}
+
+.quizzes
+{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-around; 
+    margin: 7px;  
+  
+}
+
+.quizzes img{
+    width: 340px;
+    height: 181px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.5) 64.58%, #000000 100%), url(image.png);
+    border-radius: 5px;
+}
+
+
+.tituloQ {
+    position: absolute;
+    bottom: 20px;
+    left: 10px;
+    font-weight: 400;
+    font-size: 19px;
+    line-height: 22px;
+    color: #FFFFFF;
+    z-index: 1;
 }
 
 .escondido {

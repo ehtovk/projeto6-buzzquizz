@@ -1,18 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="assets/css/reset.css">
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/reset.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
     <title>BuzzQuiz</title>
 </head>
 <body>
     <header>
         <h1>BuzzQuiz</h1> 
     </header>
-    <div class="tela1">
+    <div class="tela1 escondido">
         <div class="bod">
         <div class="seusQuizV">
             <p>Você não criou nenhum</p>
@@ -21,15 +21,15 @@
         </div>
         <div class="todosQ">
             <div class="quizzes">
-                <img src=""/>
+                <img class="quizImg">
                 <p class="tituloQ">simposnos sei la</p>
             </div>
         </div>
         </div>
     </div>
 
-    <main class="tela3 escondido">
-        <section class="basic-info">
+    <main class="tela3">
+        <section class="basic-info ">
             <h1>Comece pelo começo</h1>
             <div>
                 <input class="title-Creation" type="text" placeholder="Título do seu quizz">
@@ -39,10 +39,19 @@
             </div>
             <button onclick="validateBasicInfo()"><p>Prosseguir para criar perguntas</p></button>
         </section>
+
+        <section class="quest-creation escondido">
+            <h1>Crie suas perguntas</h1>
+            <div class="questions">
+                
+            </div>
+            <button><p>Prosseguir pra criar níveis</p></button>
+        </section>
     </main>
 
-    <script src="assets/js/tela01.js"></script>
-    <script src="assets/js/tela02.js"></script>
-    <script src="assets/js/tela03.js"></script>
+
+    <script src="assets/js/tela01.js"></script>-->
+    <script src="assets/js/tela02.js"></script>-->
+    <script like src="/assets/js/tela03.js"></script>
 </body>
 </html>

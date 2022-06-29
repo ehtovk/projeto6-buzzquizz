@@ -1,0 +1,44 @@
+header{
+    position: fixed;
+    display: flex; 
+    align-items: center;
+    justify-content: center; 
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    background: #EC362D;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    z-index: 1;
+}
+
+header h1{
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 37px;
+    line-height: 43px;
+    color: #FFFFFF;
+}
+
+.bod{
+    display: flex;
+    flex-direction: column;  
+    align-items: center;
+    justify-content: center; 
+    background-color: #FAFAFA;;
+    font-family: "Roboto";
+}
+
+.seusQuizV
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap:;
+    width: 1051px;
+    height: 181px;
+    margin-top: 100px;
+    background: #FAFAFA;
+    border: 1px dashed #D5D5D5;
+    border-radius: 5px;
+}

@@ -67,6 +67,11 @@ header h1{
     justify-content: center;
 }
 
+.tela3 .basic-info.escondido {
+    display: none;
+    overflow: hidden;
+}
+
 .tela3 .basic-info h1 {
     font-weight: bold;
     font-size: 20px;
@@ -118,9 +123,116 @@ header h1{
     color: #FFF5F4;
 }
 
+.tela3 .quest-creation {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: #FAFAFA;
+}
+
+.tela3 .quest-creation.escondido {
+    display: none;
+    overflow: hidden;
+}
+
+.tela3 .quest-creation button {
+    width: 325px;
+    height: 54px;
+    background-color: #EC362D;
+    border: none;
+    border-radius: 15px;
+    margin-top: 18px;
+}
+
+.tela3 .quest-creation button p {
+    font-size: 18px;
+    font-weight: 400;
+    text-align: center;
+    color: #FFF5F4;
+}
+
+.tela3 .quest-creation h1 {
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 23px;
+    text-align: center;
+    padding-top: 37px;
+    padding-bottom: 28px;
+}
+
+.tela3 .quest-creation .questions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.tela3 .quest-creation .question {
+    height: 74px;
+    overflow: hidden;
+    background-color: #FFFFFF;
+    padding: 18px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.05);
+    margin-bottom: 28px;
+    transition: height 0.5s linear;
+}
+
+.tela3 .quest-creation .question.show {
+    height: 846px;
+    transition: height 0.5s linear;
+}
+
+.tela3 .quest-creation .question div {
+    display: flex;
+    flex-direction: column;
+}
+
+.tela3 .quest-creation .question h2 {
+    margin-top: 9px;
+    margin-bottom: 24px;
+    font-weight: bold;  
+    font-size: 20px;
+    line-height: 23px;
+}
+
+.tela3 .quest-creation .question h3 {
+    margin-top: 28px;
+    margin-bottom: 24px;
+    font-weight: bold;  
+    font-size: 20px;
+    line-height: 23px;
+}
+
+.tela3 .quest-creation .question div input {
+    border: solid 1px #D1D1D1;
+    width: 564px;
+    height: 46px;   
+    border-radius: 5px;
+    padding-left: 14px;
+}
+
+.tela3 .quest-creation .question div input + input {
+    margin-top: 14px;
+}
+
+.tela3 .quest-creation .question div input::placeholder {
+    font-weight: 400;
+    font-size: 19px;
+    font-style: italic;
+    color: #BABABA;
+}
+
+.tela3 .quest-creation .question div .img-incorreta1, .img-incorreta2 {
+    margin-bottom: 18px;
+}
+
 @media screen and (max-width: 1100px) {
 
     .tela3 .basic-info div input {
+        width: 341px;
+    }
+
+    .tela3 .quest-creation .question div input {
         width: 341px;
     }
 }

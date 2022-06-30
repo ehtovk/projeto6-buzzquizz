@@ -321,3 +321,156 @@ header h1{
         width: 341px;
     }
 }
+
+.tela2{
+    display: flex;
+    flex-direction: column;  
+    align-items: center;
+    justify-content: center; 
+    background-color: #FAFAFA;;
+}
+
+.caixaQ{
+    display: flex;
+    flex-direction: column;  
+    align-items: center;
+    justify-content: flex-start; 
+    width: 759px;
+    height: auto;
+    background: #FFFFFF;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.05);
+    margin-bottom: 25px;
+    flex-wrap: wrap;
+    padding: 17px;
+}
+
+.imgT{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 69px;
+    margin-bottom: 35px;
+    flex-wrap: wrap;
+    
+}
+
+.imgT img{
+    
+    width: 100%;
+    height: auto;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.57), rgba(0, 0, 0, 0.57)), url(image.png);
+}
+
+.imgT h1{
+    
+    position: absolute;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    display: flex;
+    align-items: center;
+    text-align: center; 
+    color: #FFFFFF;
+    z-index: 1;
+}
+.topquiz{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px;
+    width: 95%;
+    height: 140px;
+}
+
+.topquiz p{
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 23px;
+    color: #FFFFFF;
+}
+
+.todosR{
+    display: flex;
+    align-items: center;
+    justify-content:space-between;
+    flex-wrap: wrap;
+}
+
+.resposta{
+    display: flex;
+    align-items: flex-start;
+    justify-content: center; 
+    flex-direction: column;
+    margin: 20px; 
+}
+
+.resposta img{
+    width: 320px;
+    height: 180px;
+    
+    border-radius: 0px;
+}
+
+.resposta p{
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;  
+    color: #000000;
+    margin-top: 10px;
+}
+@media only screen and (min-width: 1100px) {
+    .imgT h1{
+        font-size: 39px;
+    }
+
+}
+@media only screen and (max-width: 1100px) {
+    .caixaQ{
+        width: 380px;
+        padding: 6px;
+    }
+    .resposta img{
+        width: 163px;
+        height: 113px;
+        border-radius: 0px;
+    }
+    .topquiz{
+        height: 89px;
+        margin: 0px;
+        margin-top: 10px;
+    }
+    .resposta{
+        margin: 10px;
+    }
+    .resposta p{
+    font-size: 13px;  
+}
+}
+@media only screen and (min-width: 768px) and (max-width: 1100px) {
+    .imgT h1{
+        font-size: 34px;
+    }
+    
+}
+@media only screen and (max-width: 767px) {
+    .imgT h1{
+        font-size: 29px;
+    }
+}
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+    .imgT h1{
+        font-size: 24px;
+    }
+}
+@media only screen and (max-width: 479px) {
+    .imgT h1{
+        font-size: 19px;
+    }
+}
+.escondido {
+    display: none;
+    overflow: hidden;
+}

@@ -6,16 +6,17 @@ const promessa = axios.get(
 
 function carregaQuizz(p)
 {
-    
+    if(document.querySelector(".tela1").classList === "tela1");
+    {
     const mostra = document.querySelector(".todosQ");
-
     
     for (let i = 0; i < p.data.length; i++)
     {             
         mostra.innerHTML += `
-        <div class="quizzes" onclick="tela2(${i});">
+        <div class="quizzes" onclick="tela2(${p.data[i].id});">
             <img src="${p.data[i].image}"/>
             <div class="tituloQ">${p.data[i].title}</div>
         </div>`;             
+    }
     }
 }

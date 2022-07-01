@@ -635,10 +635,18 @@ header h1 {
     flex-wrap: wrap;
 }
 
+.todosF {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+
 .resposta {
     display: flex;
     align-items: flex-start;
-    justify-content: center;
+    justify-content: space-around;
     flex-direction: column;
     margin: 20px;
 }
@@ -650,13 +658,26 @@ header h1 {
     border-radius: 0px;
 }
 
-.resposta p {
+.preto {
     font-family: 'Roboto';
     font-style: normal;
     font-weight: 700;
     font-size: 20px;
     color: #000000;
     margin-top: 10px;
+    width: 320px;
+}
+
+.vermelho {
+    color: #FF4B4B;
+}
+
+.opc {
+    opacity: 0.3;
+}
+
+.verde {
+    color: #009C22;
 }
 
 @media only screen and (min-width: 1100px) {
@@ -688,8 +709,9 @@ header h1 {
         margin: 10px;
     }
 
-    .resposta p {
+    .preto {
         font-size: 13px;
+        width: 163px;
     }
 }
 

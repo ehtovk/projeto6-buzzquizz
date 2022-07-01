@@ -4,9 +4,14 @@ let numberOfLevels;
 let numberOfQuestions;
 let basic_info = document.querySelector(".basic-info");
 let quest_creation = document.querySelector(".quest-creation");
+let quiz_level = document.querySelector(".quiz-level");
 let questionsBody = document.querySelector(".quest-creation .questions");
+let levelsBody = document.querySelector(".quiz-level .levels");
+let final_Page_Quizz = document.querySelector(".quiz-finish");
 
 let questions = [];
+let levels = [];
+let quiz_Pronto = {};
 
 function validateBasicInfo() {
     titleQuizCreation = document.querySelector(".title-Creation").value;
@@ -18,22 +23,24 @@ function validateBasicInfo() {
         titleQuizCreation.length > 65 ||
         Number(numberOfLevels) < 2 ||
         Number(numberOfQuestions) < 3 ||
-        (urlImgQuizCreation.indexOf("https://") < 0 &&
-            isImage(urlImgQuizCreation) === false)
+        (!urlImgQuizCreation.includes("https://") ||
+            !isImage(urlImgQuizCreation))
     ) {
-        alert("Não está valido");
-    } else {
-        console.log("Está valido");
-        goToCreateQuestions();
+        return alert("Não está valido");
     }
+    console.log("Está valido");
+    goToCreateQuestions();
 }
 
 function goToCreateQuestions() {
     for (let i = 1; i <= Number(numberOfQuestions); i++) {
         questionsBody.innerHTML += `
-        <div id="pergunta${i}" class="question">
+    <div id="pergunta${i}" class="question">
         <div>
-        <h2 onclick="openCloseQuestions(this)">Pergunta ${i}</h2>
+            <div onclick="openCloseQuestions(this)" class="wrap">
+                <h2>Pergunta ${i}</h2>
+                <ion-icon class="visible" name="list"></ion-icon>
+            </div>
             <input class="pergunta-txt${i}" type="text" placeholder="Texto da pergunta">
             <input class="cor-pergunta${i}" type="color" placeholder="Cor de fundo da pergunta">
         </div>
@@ -112,16 +119,17 @@ function validateQuestionCreation() {
         if (
             !wrongAnswer1 &&
             !imgwrongAnswer1 &&
-            isImage(imgwrongAnswer1) === false &&
+            !isImage(imgwrongAnswer1) &&
             !wrongAnswer2 &&
             !imgwrongAnswer2 &&
-            isImage(imgwrongAnswer2) === false &&
+            !isImage(imgwrongAnswer2) &&
             !wrongAnswer3 &&
             !imgwrongAnswer3 &&
-            isImage(imgwrongAnswer3) === false
+            !isImage(imgwrongAnswer3)
         ) {
             return alert("Preencha pelo menos um campo de resposta incorreta!");
         }
+        // hasAnswer1 = !!wrongAnswer1.length
         if (wrongAnswer1.length > 0) {
             hasAnswer1 = true;
         }
@@ -144,21 +152,21 @@ function validateQuestionCreation() {
             isCorrectAnswer: true
         })
 
-        if (hasAnswer1 === true) {
+        if (hasAnswer1) {
             questions[i - 1].answers.push({
                 text: wrongAnswer1,
                 image: imgwrongAnswer1,
                 isCorrectAnswer: false
             })
         }
-        if (hasAnswer2 === true) {
+        if (hasAnswer2) {
             questions[i - 1].answers.push({
                 text: wrongAnswer2,
                 image: imgwrongAnswer2,
                 isCorrectAnswer: false
             })
         }
-        if (hasAnswer3 === true) {
+        if (hasAnswer3) {
             questions[i - 1].answers.push({
                 text: wrongAnswer3,
                 image: imgwrongAnswer3,
@@ -166,19 +174,188 @@ function validateQuestionCreation() {
             })
         }
     }
+    goToCreateLevels();
+}
+
+function goToCreateLevels() {
+    for (let i = 1; i <= Number(numberOfLevels); i++) {
+        levelsBody.innerHTML +=
+            `
+        <div id="level${i}" class="level">
+            <div onclick="openCloseLevels(this)" class="wrap">
+                <h2>Nível ${i}</h2>
+                <ion-icon class="visible" name="list"></ion-icon>
+            </div>
+            <input class="level-title${i}" type="text" placeholder="Título do nível">
+            <input class="level-number${i}" type="number" placeholder="% de acerto mínima" required>
+            <input class="level-img${i}" type="url" placeholder="URL da imagem do nível">
+            <textarea class="level-description${i}" type="text" placeholder="Descrição do nível" rows="6" cols="50"></textarea>
+        </div>
+        `
+    }
+    quest_creation.classList.add("escondido");
+    quiz_level.classList.remove("escondido");
+    createObjectOfLevels(Number(numberOfLevels));
+}
+
+function createObjectOfLevels(valor) {
+    for (let i = 0; i < valor; i++) {
+        levels[i] = {
+            title: ``,
+            image: ``,
+            text: ``,
+            minValue: 0
+        }
+    }
+}
+
+let level_Title;
+let first_level_Number;
+let level_Number;
+let level_Img;
+let level_Description;
+let hasZeroAsValue = false;
+let sum_Level = 0;
+let send_Quiz = `https://mock-api.driven.com.br/api/v7/buzzquizz/quizzes`;
+
+function validateQuizLevel() {
+    hasZeroAsValue = false;
+    sum_Level = 0;
+    first_level_Number = document.querySelector(`.level-number1`).value;
+    for (let i = 1; i <= Number(numberOfLevels); i++) {
+        level_Title = document.querySelector(`.level-title${i}`).value;
+        //level_Number = document.querySelector(`.level-number${i}`).value;
+        level_Img = document.querySelector(`.level-img${i}`).value;
+        level_Description = document.querySelector(`.level-description${i}`).value;
+
+        if (level_Title.length < 10 || level_Description.length < 30 || !level_Img.includes("https://") || !isImage(level_Img)) {
+            return alert("Preencha os campos!")
+        }
+        if (Number(first_level_Number) === 0) {
+            hasZeroAsValue = true;
+            console.log("Entrou aqui");
+            console.log(hasZeroAsValue);
+        }
+
+        levels[i - 1].title = level_Title;
+        levels[i - 1].image = level_Img;
+        levels[i - 1].text = level_Description;
+    }
+    levels[0].minValue = Number(first_level_Number);
+    seeMinimumNumberLevel();
+}
+
+function seeMinimumNumberLevel() {
+    console.log(hasZeroAsValue);
+    for (let i = 2; i <= Number(numberOfLevels); i++) {
+        level_Number = document.querySelector(`.level-number${i}`).value;
+
+        if (Number(level_Number) === 0 && Number(first_level_Number) === 0) {
+            console.log("entrou no if");
+            return alert("Você já tem uma porcentagem de acerto mínima igual a zero!")
+        }
+        console.log("nao entrou no if");
+        levels[i - 1].minValue = Number(level_Number);
+    }
+    theResultNeedsToBeHund();
+}
+
+function theResultNeedsToBeHund() {
+    for (let i = 0; i < Number(numberOfLevels); i++) {
+        sum_Level += levels[i].minValue;
+    }
+    console.log(sum_Level);
+    if (sum_Level > 100) {
+        return alert("A soma da porcentagem é maior de 100! Verifique novamente!")
+    }
+
+    goToFinalPageQuiz();
+    quiz_level.classList.add("escondido");
+    final_Page_Quizz.classList.remove("escondido");
+}
+
+function goToFinalPageQuiz() {
+    numberOfLevels = 0;
+    numberOfQuestions = 0;
+
+    let img_Page = document.querySelector(".finished-qz");
+    img_Page.innerHTML =
+        `
+                <img src="${urlImgQuizCreation}" alt="">
+                <div class="gradient-back"></div>
+                <p>${titleQuizCreation}</p>
+    `
+    quiz_Pronto =
+    {
+        title: titleQuizCreation,
+        image: urlImgQuizCreation,
+        questions,
+        levels
+    }
+    sendQuizzToAPI();
+}
+
+let idsSavedArr = null;
+let idsSavedString = null;
+
+function sendQuizzToAPI() {
+    let sending = axios.post('https://mock-api.driven.com.br/api/v7/buzzquizz/quizzes', quiz_Pronto);
+    sending.then(seeQuizz);
+}
+
+function seeQuizz(yourQuiz) {
+    let idYourQuiz = yourQuiz.data.id;
+    console.log(yourQuiz);
+
+    saveInformationsUserId(idYourQuiz);
+}
+
+function verifySavedIds() {
+    idsSavedString = localStorage.getItem('savedIds');
+    if (idsSavedString === null) {
+        idsSavedString = '[]';
+    }
+    idsSavedArr = JSON.parse(idsSavedString);
+
+    if (idsSavedArr.length > 0) {
+        searchIdYourQuiz();
+    }
+
+}
+
+function saveInformationsUserId(idOfYourQuiz) {
+    let info = 0;
+    info = idOfYourQuiz;
+    idsSavedArr.push(info);
+    idsSavedString = JSON.stringify(idsSavedArr);
+    localStorage.setItem('savedIds', idsSavedString);
+}
+
+function searchIdYourQuiz() {
+    for (let i = 0; i < idsSavedArr; i++) {
+        let promisseYourQuiz = axios.get('https://mock-api.driven.com.br/api/v7/buzzquizz/quizzes/${idsSavedArr[i]}')
+    }
 }
 
 function openCloseQuestions(elemento) {
-    let perguntaSelecionada = document.querySelector(
-        ".tela3 .quest-creation .question>div>h2"
-    );
     elemento.parentNode.parentNode.classList.toggle("show");
+    elemento.querySelector("ion-icon").classList.toggle("visible");
+}
+
+function openCloseLevels(elemento) {
+    elemento.parentNode.classList.toggle("show");
+    elemento.querySelector("ion-icon").classList.toggle("visible");
+}
+
+let homePage = document.querySelector(".tela1");
+let creationPage = document.querySelector(".tela3");
+
+function goBackToHomePage() {
+    homePage.classList.remove("escondido");
+    creationPage.classList.add("escondido");
 }
 
 function isImage(stringUrl) {
-    if ((stringUrl.indexOf(".jpeg") !== -1) || (stringUrl.indexOf(".jpg") !== -1) || (stringUrl.indexOf(".png") !== -1) || (stringUrl.indexOf(".gif") !== -1) || (stringUrl.indexOf(".tiff") !== -1) || (stringUrl.indexOf(".bmp") !== -1)) {
-        return true;
-    } else {
-        return false;
-    }
+    return stringUrl.includes(".jpeg") || stringUrl.includes(".jpg") || stringUrl.includes(".png") || stringUrl.includes(".gif") || stringUrl.includes(".tiff") || stringUrl.includes(".bmp")
+
 }

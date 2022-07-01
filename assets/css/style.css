@@ -5,11 +5,11 @@
     box-sizing: border-box;
 }
 
-header{
+header {
     position: fixed;
-    display: flex; 
+    display: flex;
     align-items: center;
-    justify-content: center; 
+    justify-content: center;
     left: 0px;
     top: 0px;
     width: 100%;
@@ -19,7 +19,7 @@ header{
     z-index: 2;
 }
 
-header h1{
+header h1 {
     font-family: 'Roboto';
     font-style: normal;
     font-weight: 700;
@@ -28,17 +28,17 @@ header h1{
     color: #FFFFFF;
 }
 
-.bod{
+.bod {
     display: flex;
-    flex-direction: column;  
+    flex-direction: column;
     align-items: center;
-    justify-content: center; 
-    background-color: #FAFAFA;;
+    justify-content: center;
+    background-color: #FAFAFA;
+    ;
     font-family: "Roboto";
 }
 
-.seusQuizV
-{
+.seusQuizV {
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -53,20 +53,19 @@ header h1{
     margin-bottom: 50px;
 }
 
-.seusQuizV div{
+.seusQuizV div {
     align-items: center;
     text-align: center;
 }
 
-.seusQuizV div p
-{
+.seusQuizV div p {
     font-weight: 400;
     font-size: 20px;
     line-height: 23px;
     color: #B9B9B9;
 }
 
-.criar{
+.criar {
     box-sizing: border-box;
     border: 1px dashed #EC362D;
     border-radius: 50px;
@@ -80,7 +79,7 @@ header h1{
     background: #FAFAFA;
 }
 
-.quiz{
+.quiz {
     display: flex;
     align-items: flex-start;
     justify-content: space-around;
@@ -88,17 +87,17 @@ header h1{
     width: 85%;
 }
 
-.todosQ{
-    
+.todosQ {
+
     display: flex;
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
-    
+
 }
 
-.tq{
-    
+.tq {
+
     font-weight: 700;
     font-size: 20px;
     line-height: 23px;
@@ -107,17 +106,16 @@ header h1{
 
 }
 
-.quizzes
-{
+.quizzes {
     position: relative;
     display: flex;
     align-items: center;
-    justify-content: space-around; 
-    margin: 7px;  
-  
+    justify-content: space-around;
+    margin: 7px;
+
 }
 
-.quizzes img{
+.quizzes img {
     width: 340px;
     height: 181px;
     background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.5) 64.58%, #000000 100%), url(image.png);
@@ -143,6 +141,8 @@ header h1{
 
 .tela3 {
     margin-top: 69px;
+    height: 100vh;
+    background-color: #FAFAFA;
 }
 
 .tela3 .basic-info {
@@ -167,21 +167,23 @@ header h1{
 }
 
 .tela3 .basic-info div {
+    padding: 18px;
     display: flex;
     flex-direction: column;
     align-items: center;
-
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.05);
+    background-color: #FFFFFF;
 }
 
 .tela3 .basic-info div input {
     border: solid 1px #D1D1D1;
     width: 564px;
-    height: 46px;   
+    height: 46px;
     border-radius: 5px;
     padding-left: 14px;
 }
 
-.tela3 .basic-info div input + input {
+.tela3 .basic-info div input+input {
     margin-top: 9px;
 }
 
@@ -272,18 +274,38 @@ header h1{
     flex-direction: column;
 }
 
+.tela3 .quest-creation .question div .wrap {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.tela3 .quest-creation .question div .wrap ion-icon.visible {
+    width: 26px;
+    height: 26px;
+    margin-top: 9px;
+    margin-bottom: 24px;
+    opacity: 1;
+}
+
+.tela3 .quest-creation .question div .wrap ion-icon {
+    opacity: 0;
+}
+
 .tela3 .quest-creation .question h2 {
     margin-top: 9px;
     margin-bottom: 24px;
-    font-weight: bold;  
+    font-weight: bold;
     font-size: 20px;
     line-height: 23px;
+    cursor: pointer;
 }
 
 .tela3 .quest-creation .question h3 {
     margin-top: 28px;
     margin-bottom: 24px;
-    font-weight: bold;  
+    font-weight: bold;
     font-size: 20px;
     line-height: 23px;
 }
@@ -291,12 +313,12 @@ header h1{
 .tela3 .quest-creation .question div input {
     border: solid 1px #D1D1D1;
     width: 564px;
-    height: 46px;   
+    height: 46px;
     border-radius: 5px;
     padding-left: 14px;
 }
 
-.tela3 .quest-creation .question div input + input {
+.tela3 .quest-creation .question div input+input {
     margin-top: 14px;
 }
 
@@ -307,8 +329,211 @@ header h1{
     color: #BABABA;
 }
 
-.tela3 .quest-creation .question div .img-incorreta1, .img-incorreta2 {
+.tela3 .quest-creation .question div .img-incorreta1,
+.img-incorreta2 {
     margin-bottom: 18px;
+}
+
+.tela3 .quiz-level {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: #FAFAFA;
+}
+
+.tela3 .quiz-level .level .wrap {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.tela3 .quiz-level .level .wrap ion-icon.visible {
+    width: 26px;
+    height: 26px;
+    margin-top: 9px;
+    margin-bottom: 24px;
+    opacity: 1;
+}
+
+.tela3 .quiz-level .level .wrap ion-icon {
+    opacity: 0;
+}
+
+.tela3 .quiz-level.escondido {
+    display: none;
+    overflow: hidden;
+}
+
+.tela3 .quiz-level h1 {
+    margin-top: 39px;
+    margin-bottom: 28px;
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 23px;
+}
+
+.tela3 .quiz-level .levels {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.tela3 .quiz-level .level {
+    height: 74px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    background-color: #FFFFFF;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.05);
+    margin-bottom: 28px;
+    padding: 18px;
+    margin-bottom: 28px;
+
+    transition: height 0.5s linear;
+}
+
+.tela3 .quiz-level .level.show {
+    height: 388px;
+    transition: height 0.5s linear;
+}
+
+.tela3 .quiz-level .level h2 {
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 23px;
+    margin-top: 10px;
+    margin-bottom: 23px;
+    cursor: pointer;
+}
+
+.tela3 .quiz-level .level input {
+    border: solid 1px #D1D1D1;
+    width: 564px;
+    height: 46px;
+    border-radius: 5px;
+    padding-left: 14px;
+    margin-bottom: 14px;
+}
+
+.tela3 .quiz-level .level input::placeholder {
+    font-weight: 400;
+    font-size: 19px;
+    font-style: italic;
+    color: #BABABA;
+}
+
+.tela3 .quiz-level .level textarea {
+    border: solid 1px #D1D1D1;
+    padding-top: 8px;
+    padding-left: 14px;
+}
+
+.tela3 .quiz-level .level textarea::placeholder {
+    font-weight: 400;
+    font-size: 19px;
+    font-style: italic;
+    color: #BABABA;
+}
+
+.tela3 .quiz-level button {
+    margin-top: 53px;
+    width: 325px;
+    height: 54px;
+    background-color: #EC362D;
+    border: none;
+    border-radius: 15px;
+}
+
+.tela3 .quiz-level button p {
+    font-size: 18px;
+    font-weight: 400;
+    text-align: center;
+    color: #FFF5F4;
+}
+
+.tela3 .quiz-finish {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.tela3 .quiz-finish.escondido {
+    display: none;
+    overflow: hidden;
+}
+
+.tela3 .quiz-finish h1 {
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 23px;
+    padding-top: 39px;
+    margin-bottom: 29px;
+    text-align: center;
+}
+
+.tela3 .quiz-finish .finished-qz {
+    width: 500px;
+    height: 266px;
+    position: relative;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.tela3 .quiz-finish .finished-qz img {
+    width: 100%;
+}
+
+.tela3 .quiz-finish .finished-qz p {
+    font-weight: 400;
+    font-size: 19px;
+    color: #ffffff;
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    padding: 15px;
+    z-index: 2;
+    width: 100%;
+    max-width: 340px;
+    max-height: 90px;
+    word-wrap: break-word;
+}
+
+.tela3 .quiz-finish .gradient-back {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 1;
+    background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 1));
+}
+
+.tela3 .quiz-finish button {
+    margin-top: 33px;
+    margin-bottom: 30px;
+    width: 325px;
+    height: 54px;
+    background-color: #EC362D;
+    border: none;
+    border-radius: 15px;
+}
+
+.tela3 .quiz-finish button p {
+    font-size: 18px;
+    font-weight: 400;
+    text-align: center;
+    color: #FFF5F4;
+}
+
+.tela3 .quiz-finish a {
+    color: #818181;
+    text-decoration: none;
+    font-weight: 400;
+    font-size: 18px;
 }
 
 @media screen and (max-width: 1100px) {
@@ -320,21 +545,32 @@ header h1{
     .tela3 .quest-creation .question div input {
         width: 341px;
     }
+
+    .tela3 .quiz-level .level input,
+    textarea {
+        width: 341px;
+    }
+
+    .tela3 .quiz-finish .finished-qz {
+        width: 340px;
+        height: 181px;
+    }
 }
 
-.tela2{
+.tela2 {
     display: flex;
-    flex-direction: column;  
+    flex-direction: column;
     align-items: center;
-    justify-content: center; 
-    background-color: #FAFAFA;;
+    justify-content: center;
+    background-color: #FAFAFA;
+    ;
 }
 
-.caixaQ{
+.caixaQ {
     display: flex;
-    flex-direction: column;  
+    flex-direction: column;
     align-items: center;
-    justify-content: flex-start; 
+    justify-content: flex-start;
     width: 759px;
     height: auto;
     background: #FFFFFF;
@@ -344,7 +580,7 @@ header h1{
     padding: 17px;
 }
 
-.imgT{
+.imgT {
     position: relative;
     display: flex;
     align-items: center;
@@ -352,29 +588,30 @@ header h1{
     margin-top: 69px;
     margin-bottom: 35px;
     flex-wrap: wrap;
-    
+
 }
 
-.imgT img{
-    
+.imgT img {
+
     width: 100%;
     height: auto;
     background: linear-gradient(0deg, rgba(0, 0, 0, 0.57), rgba(0, 0, 0, 0.57)), url(image.png);
 }
 
-.imgT h1{
-    
+.imgT h1 {
+
     position: absolute;
     font-family: 'Roboto';
     font-style: normal;
     font-weight: 400;
     display: flex;
     align-items: center;
-    text-align: center; 
+    text-align: center;
     color: #FFFFFF;
     z-index: 1;
 }
-.topquiz{
+
+.topquiz {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -383,7 +620,7 @@ header h1{
     height: 140px;
 }
 
-.topquiz p{
+.topquiz p {
     font-family: 'Roboto';
     font-style: normal;
     font-weight: 700;
@@ -391,85 +628,96 @@ header h1{
     color: #FFFFFF;
 }
 
-.todosR{
+.todosR {
     display: flex;
     align-items: center;
-    justify-content:space-between;
+    justify-content: space-between;
     flex-wrap: wrap;
 }
 
-.resposta{
+.resposta {
     display: flex;
     align-items: flex-start;
-    justify-content: center; 
+    justify-content: center;
     flex-direction: column;
-    margin: 20px; 
+    margin: 20px;
 }
 
-.resposta img{
+.resposta img {
     width: 320px;
     height: 180px;
-    
+
     border-radius: 0px;
 }
 
-.resposta p{
+.resposta p {
     font-family: 'Roboto';
     font-style: normal;
     font-weight: 700;
-    font-size: 20px;  
+    font-size: 20px;
     color: #000000;
     margin-top: 10px;
 }
+
 @media only screen and (min-width: 1100px) {
-    .imgT h1{
+    .imgT h1 {
         font-size: 39px;
     }
 
 }
+
 @media only screen and (max-width: 1100px) {
-    .caixaQ{
+    .caixaQ {
         width: 380px;
         padding: 6px;
     }
-    .resposta img{
+
+    .resposta img {
         width: 163px;
         height: 113px;
         border-radius: 0px;
     }
-    .topquiz{
+
+    .topquiz {
         height: 89px;
         margin: 0px;
         margin-top: 10px;
     }
-    .resposta{
+
+    .resposta {
         margin: 10px;
     }
-    .resposta p{
-    font-size: 13px;  
+
+    .resposta p {
+        font-size: 13px;
+    }
 }
-}
+
 @media only screen and (min-width: 768px) and (max-width: 1100px) {
-    .imgT h1{
+    .imgT h1 {
         font-size: 34px;
     }
-    
+
 }
+
 @media only screen and (max-width: 767px) {
-    .imgT h1{
+    .imgT h1 {
         font-size: 29px;
     }
 }
+
 @media only screen and (min-width: 480px) and (max-width: 767px) {
-    .imgT h1{
+    .imgT h1 {
         font-size: 24px;
     }
 }
+
 @media only screen and (max-width: 479px) {
-    .imgT h1{
+    .imgT h1 {
         font-size: 19px;
     }
 }
+
 .escondido {
     display: none;
     overflow: hidden;

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,24 +9,29 @@
     <link rel="stylesheet" href="./assets/css/style.css">
     <title>BuzzQuiz</title>
 </head>
+
 <body>
     <header>
-        <h1>BuzzQuiz</h1> 
+        <h1>BuzzQuiz</h1>
     </header>
-    <div class="tela1">
+    <div class="tela1 escondido">
         <div class="bod">
-        <div class="seusQuizV">
-            <div><p>Você não criou nenhum</p>
-            <p> quizz ainda :(</p></div>
-            <button class="criar" onclick="">Criar Quizz</button>
-        </div>
-        
-        <div class="quiz">
-        <div class="tq"><p>Todos os Quizzes</p></div>
-        <div class="todosQ">
-            
-        </div>
-        </div>
+            <div class="seusQuizV">
+                <div>
+                    <p>Você não criou nenhum</p>
+                    <p> quizz ainda :(</p>
+                </div>
+                <button class="criar" onclick="">Criar Quizz</button>
+            </div>
+
+            <div class="quiz">
+                <div class="tq">
+                    <p>Todos os Quizzes</p>
+                </div>
+                <div class="todosQ">
+
+                </div>
+            </div>
         </div>
     </div>
 
@@ -34,10 +40,10 @@
             <img class="tela2img" src="https://ogimg.infoglobo.com.br/in/24961032-6b5-270/FT1086A/84471251_Friends.jpg">
             <h1 class="tela2t">o quao poter</h1>
         </div>
-        
+
     </div>
 
-    <main class="tela3 escondido">
+    <main class="tela3 ">
         <section class="basic-info ">
             <h1>Comece pelo começo</h1>
             <div>
@@ -46,21 +52,48 @@
                 <input class="number-Ask" type="number" placeholder="Quantidade de perguntas do quizz">
                 <input class="number-Level" type="number" placeholder="Quantidade de níveis do quizz">
             </div>
-            <button onclick="validateBasicInfo()"><p>Prosseguir para criar perguntas</p></button>
+            <button onclick="validateBasicInfo()">
+                <p>Prosseguir para criar perguntas</p>
+            </button>
         </section>
 
         <section class="quest-creation escondido">
             <h1>Crie suas perguntas</h1>
             <div class="questions">
-                
+
             </div>
-            <button onclick="validateQuestionCreation()"><p>Prosseguir pra criar níveis</p></button>
+            <button onclick="validateQuestionCreation()">
+                <p>Prosseguir pra criar níveis</p>
+            </button>
+        </section>
+
+        <section class="quiz-level escondido">
+            <h1>Agora, decida os níveis!</h1>
+            <div class="levels">
+
+            </div>
+            <button onclick="validateQuizLevel()">
+                <p>Finalizar Quizz</p>
+            </button>
+        </section>
+
+        <section class="quiz-finish escondido">
+            <h1>Seu quiz está pronto!</h1>
+            <div class="finished-qz">
+
+            </div>
+            <button>
+                <p>Acessar Quizz</p>
+            </button>
+            <a onclick="goBackToHomePage()" href="">Voltar pra home</a>
         </section>
     </main>
 
+    <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="assets/js/tela01.js"></script>
     <script src="assets/js/tela02.js"></script>
     <script src="/assets/js/tela03.js"></script>
 </body>
+
 </html>

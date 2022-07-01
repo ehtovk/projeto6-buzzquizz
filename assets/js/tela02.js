@@ -96,6 +96,11 @@ function acerta(questao, resposta) {
                         cor[x].classList.add("verde");
                         coloca[x].classList.add("opc");
                     }
+                    else
+                    {
+                        cor[x].classList.add("vermelho");
+                        coloca[x].classList.add("opc");
+                    }
                 }
                 x++;
             }

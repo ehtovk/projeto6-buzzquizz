@@ -14,15 +14,25 @@
     <header>
         <h1>BuzzQuiz</h1>
     </header>
-    <div class="tela1 escondido">
+    <div class="tela1 ">
         <div class="bod">
-            <div class="seusQuizV">
+            <div class="seusQuizV ">
                 <div>
                     <p>Você não criou nenhum</p>
                     <p> quizz ainda :(</p>
                 </div>
-                <button class="criar" onclick="">Criar Quizz</button>
+                <button class="criar" onclick="createQuizz()">Criar Quizz</button>
             </div>
+
+            <section class="quizCriado escondido">
+                <div class="headT">
+                    <h1>Seus Quizzes</h1>
+                    <ion-icon name="add-circle-sharp"></ion-icon>
+                </div>
+                <div class="wrap-quiz">
+
+                </div>
+            </section>
 
             <div class="quiz">
                 <div class="tq">
@@ -39,7 +49,7 @@
 
     </div>
 
-    <main class="tela3 ">
+    <main class="tela3 escondido ">
         <section class="basic-info ">
             <h1>Comece pelo começo</h1>
             <div>
@@ -87,9 +97,9 @@
 
     <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="/assets/js/tela03.js"></script>
     <script src="assets/js/tela01.js"></script>
     <script src="assets/js/tela02.js"></script>
-    <script src="/assets/js/tela03.js"></script>
 </body>
 
 </html>

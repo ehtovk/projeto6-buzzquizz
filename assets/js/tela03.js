@@ -13,6 +13,12 @@ let questions = [];
 let levels = [];
 let quiz_Pronto = {};
 
+
+function createQuizz() {
+    creationPage.classList.remove("escondido");
+    homePage.classList.add("escondido");
+}
+
 function validateBasicInfo() {
     titleQuizCreation = document.querySelector(".title-Creation").value;
     urlImgQuizCreation = document.querySelector(".url-Img-Creation").value;
@@ -264,11 +270,6 @@ function theResultNeedsToBeHund() {
     for (let i = 0; i < Number(numberOfLevels); i++) {
         sum_Level += levels[i].minValue;
     }
-    console.log(sum_Level);
-    if (sum_Level > 100) {
-        return alert("A soma da porcentagem é maior de 100! Verifique novamente!")
-    }
-
     goToFinalPageQuiz();
     quiz_level.classList.add("escondido");
     final_Page_Quizz.classList.remove("escondido");
@@ -319,8 +320,10 @@ function verifySavedIds() {
 
     if (idsSavedArr.length > 0) {
         searchIdYourQuiz();
+        document.querySelector(".seusQuizV").classList.add("escondido");
+        document.querySelector(".quizCriado").classList.remove("escondido");
     }
-
+    console.log("nao tem nada ainda");
 }
 
 function saveInformationsUserId(idOfYourQuiz) {
@@ -333,8 +336,23 @@ function saveInformationsUserId(idOfYourQuiz) {
 
 function searchIdYourQuiz() {
     for (let i = 0; i < idsSavedArr; i++) {
-        let promisseYourQuiz = axios.get('https://mock-api.driven.com.br/api/v7/buzzquizz/quizzes/${idsSavedArr[i]}')
+        let promisseYourQuiz = axios.get('https://mock-api.driven.com.br/api/v7/buzzquizz/quizzes/${idsSavedArr[i]}');
+        promisseYourQuiz.then(renderYourQuizz);
     }
+}
+
+function renderYourQuizz(answerW) {
+    console.log(answerW);
+    let screenYour = document.querySelector(".wrap-quiz");
+
+    screenYour.innerHTML +=
+        `
+    <div class="yourQuizz" id="${answerW.data.id}">
+        <img src="${answerW.data.image}" alt="">
+        <div class="gradient-back"></div>
+        <p>${answerW.data.title}</p>
+    </div>
+    `
 }
 
 function openCloseQuestions(elemento) {

@@ -12,7 +12,7 @@ function tela2(i) {
     document.querySelector(".tela1").classList.add("escondido");
     document.querySelector(".tela2").classList.remove("escondido");
     const promessa = axios.get(
-        "https://mock-api.driven.com.br/api/v4/buzzquizz/quizzes/" + i
+        "https://mock-api.driven.com.br/api/v7/buzzquizz/quizzes/" + i
     );
     promessa.then(jogaQuizz);
 }
@@ -28,6 +28,7 @@ function jogaQuizz(prome) {
 
     html += `<div class="imgT">
                 <img src="${d.image}">
+                <div class="gradient-back"></div>
                 <h1>${d.title}</h1>
             </div>`;
 

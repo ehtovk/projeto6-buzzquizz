@@ -1,6 +1,6 @@
 
 const promessa = axios.get(
-    "https://mock-api.driven.com.br/api/v4/buzzquizz/quizzes"
+    "https://mock-api.driven.com.br/api/v7/buzzquizz/quizzes"
 );
 promessa.then(carregaQuizz);
 

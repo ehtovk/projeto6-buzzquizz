@@ -18,6 +18,7 @@ function tela2(i) {
 }
 
 function jogaQuizz(prome) {
+    window.scrollTo(0, 0);
     d = prome.data;
     let html = ``;
     const mostra = document.querySelector(".tela2");
@@ -108,7 +109,7 @@ function acerta(questao, resposta) {
         setTimeout(function () {
 
             let tamanho = imgt.scrollHeight;
-            for (let i = 0; i < q.length; i++) {
+            for (let i = 0; i < caixaq.length; i++) {
                 if (q[i] === false) {
                     break;
                 }
@@ -167,8 +168,62 @@ function ganhou() {
         }
     }
 
+    html +=`<button class="botao2" onclick="renincia()">Reiniciar Quizz</button>
+            <button class="botao3" onclick="voltarHome()">Voltar pra Home</button>
+                `;
+
     mostra.innerHTML += html;
 
+}
+
+function renincia()
+{
+    acertou = 0;
+    sai = false;
+    for (let i = 0; i < q.length; i++)
+    {
+        q.pop;
+    }
+    for(let i = 0; i < coloca.length; i++)
+    {
+        coloca.pop;
+    }
+    for(let i = 0; i < caixaq.length; i++)
+    {
+        caixaq.pop;
+    }
+    for (let i = 0; i < cor.length; i++)
+    {
+        cor.pop;
+    }
+    const promessa = axios.get(
+        "https://mock-api.driven.com.br/api/v7/buzzquizz/quizzes/" + d.id
+    );
+    promessa.then(jogaQuizz);
+}
+
+function voltarHome()
+{
+    acertou = 0;
+    sai = false;
+    for(let i = 0; i < q.length; i++)
+    {
+        q.pop;
+    }
+    for(let i = 0; i < coloca.length; i++)
+    {
+        coloca.pop;
+    }
+    for(let i = 0; i < caixaq.length; i++)
+    {
+        caixaq.pop;
+    }
+    for (let i = 0; i < cor.length; i++)
+    {
+        cor.pop;
+    }
+    document.querySelector(".tela2").classList.add("escondido");
+    document.querySelector(".tela1").classList.remove("escondido");
 }
 
 function comparador() {

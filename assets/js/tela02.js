@@ -96,8 +96,7 @@ function acerta(questao, resposta) {
                         cor[x].classList.add("verde");
                         coloca[x].classList.add("opc");
                     }
-                    else
-                    {
+                    else {
                         cor[x].classList.add("vermelho");
                         coloca[x].classList.add("opc");
                     }

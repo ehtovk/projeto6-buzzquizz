@@ -19,3 +19,19 @@ function carregaQuizz(p) {
         }
     }
 }
+
+function verifySavedIds() {
+    idsSavedString = localStorage.getItem('savedIds');
+    if (idsSavedString === null) {
+        idsSavedString = '[]';
+    }
+    idsSavedArr = JSON.parse(idsSavedString);
+
+    if (idsSavedArr.length > 0) {
+        document.querySelector(".seusQuizV").classList.add("escondido");
+        document.querySelector(".quizCriado").classList.remove("escondido");
+    }
+    console.log("nao tem nada ainda");
+    searchIdYourQuiz();
+}
+

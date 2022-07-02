@@ -311,21 +311,6 @@ function seeQuizz(yourQuiz) {
     saveInformationsUserId(idYourQuiz);
 }
 
-function verifySavedIds() {
-    idsSavedString = localStorage.getItem('savedIds');
-    if (idsSavedString === null) {
-        idsSavedString = '[]';
-    }
-    idsSavedArr = JSON.parse(idsSavedString);
-
-    if (idsSavedArr.length > 0) {
-        searchIdYourQuiz();
-        document.querySelector(".seusQuizV").classList.add("escondido");
-        document.querySelector(".quizCriado").classList.remove("escondido");
-    }
-    console.log("nao tem nada ainda");
-}
-
 function saveInformationsUserId(idOfYourQuiz) {
     let info = 0;
     info = idOfYourQuiz;
@@ -335,6 +320,7 @@ function saveInformationsUserId(idOfYourQuiz) {
 }
 
 function searchIdYourQuiz() {
+    console.log("teste")
     for (let i = 0; i < idsSavedArr; i++) {
         let promisseYourQuiz = axios.get('https://mock-api.driven.com.br/api/v7/buzzquizz/quizzes/${idsSavedArr[i]}');
         promisseYourQuiz.then(renderYourQuizz);

@@ -29,6 +29,7 @@ function jogaQuizz(prome) {
 
     html += `<div class="imgT">
                 <img src="${d.image}">
+                <div class="gradient-back"></div>
                 <h1>${d.title}</h1>
             </div>`;
 
@@ -96,8 +97,7 @@ function acerta(questao, resposta) {
                         cor[x].classList.add("verde");
                         coloca[x].classList.add("opc");
                     }
-                    else
-                    {
+                    else {
                         cor[x].classList.add("vermelho");
                         coloca[x].classList.add("opc");
                     }

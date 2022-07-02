@@ -333,7 +333,7 @@ function renderYourQuizz(answerW) {
 
     screenYour.innerHTML +=
         `
-    <div class="yourQuizz" id="${answerW.data.id}">
+    <div class="yourQuizz" onclick="tela2(${answerW.data.id});" id="${answerW.data.id}">
         <img src="${answerW.data.image}" alt="">
         <div class="gradient-back"></div>
         <p>${answerW.data.title}</p>

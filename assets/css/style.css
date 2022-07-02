@@ -3,7 +3,7 @@
 * {
     font-family: 'Roboto', sans-serif;
     box-sizing: border-box;
-
+    word-break: break-word;
 }
 
 header {

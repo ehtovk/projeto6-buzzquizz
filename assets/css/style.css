@@ -104,7 +104,7 @@ header h1 {
     line-height: 23px;
     color: #000000;
     margin-left: 26px;
-
+    margin-bottom: 10px;
 }
 
 .quizzes {
@@ -141,6 +141,7 @@ header h1 {
     position: absolute;
     z-index: 1;
     background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 1));
+    border-radius: 5px;
 }
 
 .escondido {
@@ -151,10 +152,27 @@ header h1 {
 .quizCriado {
     margin-top: 100px;
     margin-bottom: 48px;
+    width: 1050px;
 }
 
 .quizCriado .headT {
     display: flex;
+    margin-bottom: 10px;
+}
+
+.quizCriado .headT h1 {
+    padding-top: 5px;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 23px;
+    margin-right: 10px;
+}
+
+.quizCriado .headT ion-icon {
+    color: #EC362D;
+    width: 32px;
+    height: 32px;
+
 }
 
 .quizCriado .yourQuizz {
@@ -605,11 +623,16 @@ header h1 {
         width: 340px;
         height: 181px;
     }
+
 }
 
 @media screen and (max-width: 1300px) {
     .seusQuizV {
         width: 800px;
+    }
+
+    .quizCriado {
+        width: 700px;
     }
 
     .quiz {
@@ -640,6 +663,10 @@ header h1 {
         width: 85%;
     }
 
+    .quizCriado {
+        width: 340px;
+    }
+
     .quiz {
         width: 500px;
     }
@@ -660,6 +687,10 @@ header h1 {
 
     .tq {
         margin-left: 0px;
+    }
+
+    .quizCriado .headT {
+        justify-content: space-between;
     }
 }
 

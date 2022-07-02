@@ -147,10 +147,11 @@ function ganhou() {
     let maior = 0;
 
     for (let i = 0; i < d.levels.length; i++) {
-        if (d.levels[i].minValue >= maior) {
-            maior = d.levels[i].minValue;
-            if (nota >= maior) 
+       if (nota >= d.levels[i].minValue) 
+        {
+            if (d.levels[i].minValue >= maior) 
             {
+                maior = d.levels[i].minValue;
                 html = `
                 <div class="caixaQ">
                     <div style="background: #EC362D"  class="topquiz">  

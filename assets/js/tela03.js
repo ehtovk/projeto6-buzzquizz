@@ -322,7 +322,7 @@ function saveInformationsUserId(idOfYourQuiz) {
 function searchIdYourQuiz() {
     console.log("teste")
     for (let i = 0; i < idsSavedArr; i++) {
-        let promisseYourQuiz = axios.get('https://mock-api.driven.com.br/api/v7/buzzquizz/quizzes/${idsSavedArr[i]}');
+        let promisseYourQuiz = axios.get(`https://mock-api.driven.com.br/api/v7/buzzquizz/quizzes/${idsSavedArr[i]}`);
         promisseYourQuiz.then(renderYourQuizz);
     }
 }

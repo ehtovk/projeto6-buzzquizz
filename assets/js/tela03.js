@@ -32,9 +32,12 @@ function validateBasicInfo() {
         (!urlImgQuizCreation.includes("https://") ||
             !isImage(urlImgQuizCreation))
     ) {
-        return alert("Não está valido");
+        return alert(`Preencha os campos da seguinte forma:
+        - Título do quizz: deve ter no mínimo 20 e no máximo 65 caracteres 
+        - URL da Imagem: deve ter formato de URL 
+        - Quantidade de perguntas: no mínimo 3 perguntas 
+        - Quantidade de níveis: no mínimo 2 níveis`)
     }
-    console.log("Está valido");
     goToCreateQuestions();
 }
 
@@ -117,7 +120,11 @@ function validateQuestionCreation() {
             questionColor.length < 7 ||
             questionColor.indexOf("#") < 0
         ) {
-            return alert("Preencha os campos!");
+            return alert(`Preencha os campos da seguinte forma:
+            - Texto da pergunta: no mínimo 20 caracteres 
+            - URL da Imagem: deve ter formato de URL 
+            - Texto das respostas: não pode estar vazio 
+            - É obrigatório a inserção de pelo menos uma resposta correta e uma incorreta!`);
         }
         if (correctAnswer.length === 0 || correctImg.indexOf("https://") < 0) {
             return alert("Preencha a resposta correta!");
@@ -145,10 +152,6 @@ function validateQuestionCreation() {
         if (wrongAnswer3.length > 0) {
             hasAnswer3 = true;
         }
-        console.log(`Respostas incorretas da pergunta ${i}`);
-        console.log(hasAnswer1);
-        console.log(hasAnswer2);
-        console.log(hasAnswer3);
 
         questions[i - 1].title = questionTitle;
         questions[i - 1].color = questionColor;
@@ -235,12 +238,13 @@ function validateQuizLevel() {
         level_Description = document.querySelector(`.level-description${i}`).value;
 
         if (level_Title.length < 10 || level_Description.length < 30 || !level_Img.includes("https://") || !isImage(level_Img)) {
-            return alert("Preencha os campos!")
+            return alert(`Preencha os campos da seguinte forma:
+            - Título do nível: mínimo de 10 caracteres 
+            - URL da Imagem: deve ter formato de URL 
+            - Descrição do nível: mínimo de 30 caracteres`)
         }
         if (Number(first_level_Number) === 0) {
             hasZeroAsValue = true;
-            console.log("Entrou aqui");
-            console.log(hasZeroAsValue);
         }
 
         levels[i - 1].title = level_Title;
@@ -252,15 +256,12 @@ function validateQuizLevel() {
 }
 
 function seeMinimumNumberLevel() {
-    console.log(hasZeroAsValue);
     for (let i = 2; i <= Number(numberOfLevels); i++) {
         level_Number = document.querySelector(`.level-number${i}`).value;
 
         if (Number(level_Number) === 0 && Number(first_level_Number) === 0) {
-            console.log("entrou no if");
             return alert("Você já tem uma porcentagem de acerto mínima igual a zero!")
         }
-        console.log("nao entrou no if");
         levels[i - 1].minValue = Number(level_Number);
     }
     theResultNeedsToBeHund();
@@ -306,8 +307,13 @@ function sendQuizzToAPI() {
 
 function seeQuizz(yourQuiz) {
     let idYourQuiz = yourQuiz.data.id;
-    console.log(yourQuiz);
-
+    final_Page_Quizz.innerHTML +=
+        `
+    <button onclick="tela2(${idYourQuiz})">
+        <p>Acessar Quizz</p>
+    </button>
+    <a onclick="goBackToHomePage()" href="">Voltar pra home</a>
+    `
     saveInformationsUserId(idYourQuiz);
 }
 
@@ -320,15 +326,19 @@ function saveInformationsUserId(idOfYourQuiz) {
 }
 
 function searchIdYourQuiz() {
-    console.log("teste")
-    for (let i = 0; i < idsSavedArr; i++) {
-        let promisseYourQuiz = axios.get(`https://mock-api.driven.com.br/api/v7/buzzquizz/quizzes/${idsSavedArr[i]}`);
-        promisseYourQuiz.then(renderYourQuizz);
+    let promise = `https://mock-api.driven.com.br/api/v7/buzzquizz/quizzes/`;
+    for (let b = 0; b < idsSavedArr.length; b++) {
+        let flex = idsSavedArr[b];
+        promise = axios.get(`https://mock-api.driven.com.br/api/v7/buzzquizz/quizzes/${flex}`);
+        promise.then(renderYourQuizz);
     }
 }
 
+function goToSearch() {
+    searchIdYourQuiz();
+}
+
 function renderYourQuizz(answerW) {
-    console.log(answerW);
     let screenYour = document.querySelector(".wrap-quiz");
 
     screenYour.innerHTML +=

@@ -147,10 +147,8 @@ function ganhou() {
     let maior = 0;
 
     for (let i = 0; i < d.levels.length; i++) {
-       if (nota >= d.levels[i].minValue) 
-        {
-            if (d.levels[i].minValue >= maior) 
-            {
+        if (nota >= d.levels[i].minValue) {
+            if (d.levels[i].minValue >= maior) {
                 maior = d.levels[i].minValue;
                 html = `
                 <div class="caixaQ">
@@ -170,7 +168,7 @@ function ganhou() {
         }
     }
 
-    html +=`<button class="botao2" onclick="renincia()">Reiniciar Quizz</button>
+    html += `<button class="botao2" onclick="renincia()">Reiniciar Quizz</button>
             <button class="botao3" onclick="voltarHome()">Voltar pra Home</button>
                 `;
 
@@ -178,24 +176,19 @@ function ganhou() {
 
 }
 
-function renincia()
-{
+function renincia() {
     acertou = 0;
     sai = false;
-    for (let i = 0; i < q.length; i++)
-    {
+    for (let i = 0; i < q.length; i++) {
         q.pop;
     }
-    for(let i = 0; i < coloca.length; i++)
-    {
+    for (let i = 0; i < coloca.length; i++) {
         coloca.pop;
     }
-    for(let i = 0; i < caixaq.length; i++)
-    {
+    for (let i = 0; i < caixaq.length; i++) {
         caixaq.pop;
     }
-    for (let i = 0; i < cor.length; i++)
-    {
+    for (let i = 0; i < cor.length; i++) {
         cor.pop;
     }
     const promessa = axios.get(
@@ -204,24 +197,19 @@ function renincia()
     promessa.then(jogaQuizz);
 }
 
-function voltarHome()
-{
+function voltarHome() {
     acertou = 0;
     sai = false;
-    for(let i = 0; i < q.length; i++)
-    {
+    for (let i = 0; i < q.length; i++) {
         q.pop;
     }
-    for(let i = 0; i < coloca.length; i++)
-    {
+    for (let i = 0; i < coloca.length; i++) {
         coloca.pop;
     }
-    for(let i = 0; i < caixaq.length; i++)
-    {
+    for (let i = 0; i < caixaq.length; i++) {
         caixaq.pop;
     }
-    for (let i = 0; i < cor.length; i++)
-    {
+    for (let i = 0; i < cor.length; i++) {
         cor.pop;
     }
     document.querySelector(".tela2").classList.add("escondido");

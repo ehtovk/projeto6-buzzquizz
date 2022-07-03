@@ -155,6 +155,12 @@ header h1 {
     width: 1050px;
 }
 
+.quizCriado .wrap-quiz {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+}
+
 .quizCriado .headT {
     display: flex;
     margin-bottom: 10px;
@@ -818,8 +824,7 @@ header h1 {
     color: #009C22;
 }
 
-.botao2
-{
+.botao2 {
     margin-top: 20px;
     box-sizing: border-box;
     border: none;
@@ -837,8 +842,7 @@ header h1 {
     line-height: 25px;
 }
 
-.botao3
-{
+.botao3 {
     box-sizing: border-box;
     border: none;
     font-family: 'Roboto';

@@ -353,7 +353,7 @@ function renderYourQuizz(answerW) {
 }
 
 function deleteQuizz(ids) {
-    console.log("Função em andamento! Ainda não está funcionando.")
+    return alert("Função em andamento! Ainda não está funcionando.");
     // for (let i = 0; i < idsSavedArr.length; i++) {
     //     if (idsSavedArr[i] === ids) {
     //         idsSavedArr.splice(idsSavedArr.indexOf[i], 1);

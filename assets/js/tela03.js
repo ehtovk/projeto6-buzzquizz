@@ -352,14 +352,15 @@ function renderYourQuizz(answerW) {
     `
 }
 
-// function deleteQuizz(ids) {
-//     for (let i = 0; i < idsSavedArr.length; i++) {
-//         if (idsSavedArr[i] === ids) {
-//             idsSavedArr.splice(idsSavedArr.indexOf[i], 1);
-//             return verifySavedIds();
-//         }
-//     }
-// }
+function deleteQuizz(ids) {
+    console.log("Função em andamento! Ainda não está funcionando.")
+    // for (let i = 0; i < idsSavedArr.length; i++) {
+    //     if (idsSavedArr[i] === ids) {
+    //         idsSavedArr.splice(idsSavedArr.indexOf[i], 1);
+    //         return verifySavedIds();
+    //     }
+    // }
+}
 
 function openCloseQuestions(elemento) {
     elemento.parentNode.parentNode.classList.toggle("show");

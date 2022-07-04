@@ -29,7 +29,7 @@ function jogaQuizz(prome) {
 
     html += `<div class="imgT">
                 <img src="${d.image}">
-                <div class="gradient-back"></div>
+                <div class="gradient-back-tela2"></div>
                 <h1>${d.title}</h1>
             </div>`;
 

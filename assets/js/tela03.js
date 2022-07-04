@@ -343,13 +343,23 @@ function renderYourQuizz(answerW) {
 
     screenYour.innerHTML +=
         `
-    <div class="yourQuizz" onclick="tela2(${answerW.data.id});" id="${answerW.data.id}">
-        <img src="${answerW.data.image}" alt="">
-        <div class="gradient-back"></div>
-        <p>${answerW.data.title}</p>
+    <div class="yourQuizz" id="${answerW.data.id}">
+        <img onclick="tela2(${answerW.data.id})" src="${answerW.data.image}" alt="">
+        <div onclick="tela2(${answerW.data.id})" class="gradient-back"></div>
+        <p onclick="tela2(${answerW.data.id})">${answerW.data.title}</p>
+        <div class="delete-quiz" onclick="deleteQuizz(${answerW.data.id})" ><ion-icon name="trash-outline"></ion-icon></div>
     </div>
     `
 }
+
+// function deleteQuizz(ids) {
+//     for (let i = 0; i < idsSavedArr.length; i++) {
+//         if (idsSavedArr[i] === ids) {
+//             idsSavedArr.splice(idsSavedArr.indexOf[i], 1);
+//             return verifySavedIds();
+//         }
+//     }
+// }
 
 function openCloseQuestions(elemento) {
     elemento.parentNode.parentNode.classList.toggle("show");
